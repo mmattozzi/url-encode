@@ -1,7 +1,7 @@
 {
   "name": "url-encode",
   "main": "./lib/url-encode",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "URL encode or decode the selected text.",
   "activationCommands": {
     "atom-workspace": [
@@ -12,7 +12,7 @@
   "repository": "https://github.com/mmattozzi/url-encode",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">0.201.0"
   },
   "dependencies": {}
 }
