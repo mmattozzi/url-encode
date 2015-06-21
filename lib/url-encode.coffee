@@ -1,13 +1,12 @@
 module.exports =
-  activate: ->
-    atom.workspaceView.command "url-encode:encode", => @transfromSel encodeURIComponent
-    atom.workspaceView.command "url-encode:decode", => @transfromSel decodeURIComponent
-
+  activate: (state) ->
+    atom.commands.add 'atom-workspace',
+      'url-encode:encode': => @transfromSel encodeURIComponent
+      'url-encode:decode': => @transfromSel decodeURIComponent
 
   transfromSel: (t) ->
-    # This assumes the active pane item is an editor
-    editorView = atom.workspaceView.getActiveView()
-    editor = editorView?.getEditor()
+    editor = atom.workspace.getActiveTextEditor()
     if (editor?)
       selections = editor.getSelections()
-      sel.insertText(t(sel.getText()), { "select": true}) for sel in selections
+      for sel in selections
+        sel.insertText( t(sel.getText()), {"select": true} ) 
